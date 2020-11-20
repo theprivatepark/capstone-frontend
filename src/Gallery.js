@@ -1,11 +1,11 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Photo1 from './assets/images/gallery1.jpg';
+import Photo1 from './assets/gallery1.jpg'; 
 import Paper from '@material-ui/core/Paper';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
     paddingRight: theme.spacing(8),
-    paddingRight: theme.spacing(8)
   },
   card: {
     height: 400,
@@ -33,6 +32,7 @@ export default function Gallery() {
 
   return (
     <React.Fragment>
+         <CssBaseline />
       <main>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={4}>

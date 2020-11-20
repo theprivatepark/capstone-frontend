@@ -4,9 +4,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Photo4 from './assets/images/photo4.jpg';
+import Photo4 from './assets/photo4.jpg';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +34,7 @@ export default function SignInSide() {
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7}>
-        <img src={Photo4} />
+        <img src={Photo4} alt=""/>
       </Grid>
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
@@ -50,7 +49,7 @@ export default function SignInSide() {
                   name="name"
                   label="Name"
                   type="name"
-                  id="name"
+                  id="standard-basic"
                   autoComplete="name"
                 />
               </Grid>
@@ -106,8 +105,6 @@ export default function SignInSide() {
                 Submit
               </Button>
             </Grid>
-
-
           </form>
         </div>
       </Grid>
