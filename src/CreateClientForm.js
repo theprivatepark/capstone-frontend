@@ -51,7 +51,28 @@ export default function UserMainContainer() {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  const { register, handleSubmit } = useForm()
+  const handleSubmitTest = (e) => {
+    e.preventDefault()
+
+    const firstName = e.target[0].value
+    const lastName = e.target[1].value
+    const password = e.target[2].value
+    const email = e.target[3].value
+    let client = {
+      method: "POST",
+      headers: {'Content-Type' : 'application/json'},
+      body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
+        password: password,
+        email: email
+      })
+    }
+    console.log(client)
+      fetch("http://localhost:3001/clients", client)
+      .then(response => response.json())
+      .then(console.log)
+  }
 
   return (
     <div className={classes.root}>
@@ -60,55 +81,42 @@ export default function UserMainContainer() {
         <div className={classes.appBarSpacer} />
         <Container className={classes.container} >
           <Paper className={fixedHeightPaper} elevation={6} >
-            <form className={classes.form} noValidate onSubmit={handleSubmit((data) => alert(JSON.stringify(data)))}>
-
+            <form className={classes.form} noValidate onSubmit={(e)=>{handleSubmitTest(e)}}>
               <TextField
-                inputRef={register}
-                variant="outlined"
                 required
                 fullWidth
                 margin="normal"
-                name="name"
-                label="Client's First Name"
-                type="name"
-                id="standard-basic"
-                autoComplete="name"
+                name="first_name"
+                label="First Name"
+                type="first_name"
+                id="first_name"
               />
               <TextField
-                inputRef={register}
-                variant="outlined"
                 required
                 fullWidth
                 margin="normal"
-                name="name"
-                label="Client's Last Name"
-                type="name"
-                id="standard-basic"
-                autoComplete="name"
+                name="last_name"
+                label="Last Name"
+                type="last_name"
+                id="last_name"
               />
               <TextField
-                inputRef={register}
-                variant="outlined"
-                margin="normal"
                 required
                 fullWidth
-                id="Client's email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                inputRef={register}
-                variant="outlined"
                 margin="normal"
-                required
-                fullWidth
                 name="password"
-                label="Generate Password"
+                label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+              />
+               <TextField
+                required
+                fullWidth
+                margin="normal"
+                name="email"
+                label="Email"
+                type="email"
+                id="email"
               />
               <Button
                 type="submit"
