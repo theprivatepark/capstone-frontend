@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import CreateClientForm from './CreateClientForm';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
+import ClientList from './ClientList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,8 @@ export default function ClientHome() {
         :
         <CreateClientForm />}
 
+
+    <ClientList/>
 
     </div>
   )
