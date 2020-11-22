@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import { mainListItems } from './ListItems';
-import Button from '@material-ui/core/Button';
-import CreateClientForm from './CreateClientForm';
-
+import GalleryHome from './GalleryHome';
+import { Switch, Route } from 'react-router-dom';
+import ClientHome from './ClientHome';
 
 const drawerWidth = 240;
 
@@ -32,9 +32,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UserMainContainer() {
+export default function AdminMainContainer() {
   const classes = useStyles();
-  const [showForm, setShowForm] = useState(false)
 
   return (
     <div className={classes.root}>
@@ -48,13 +47,10 @@ export default function UserMainContainer() {
         <List>{mainListItems}</List>
       </Drawer>
 
-      {!showForm ? <div className={classes.content}>
-        <Button variant="contained" onClick={() => setShowForm(!showForm)}>Add New Client Form</Button>
-        <div className={classes.appBarSpacer} />
-      </div> 
-      :
-      <CreateClientForm/>} 
-
+      <Switch>
+        <Route exact path="/admin/clienthome" component={ClientHome} />
+        <Route exact path="/admin/galleryhome" component={GalleryHome} />
+      </Switch>
     </div>
   );
 }
