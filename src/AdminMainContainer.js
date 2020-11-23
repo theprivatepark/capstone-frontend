@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import { mainListItems } from './ListItems';
-import GalleryHome from './GalleryHome';
+import AdminGalleryHome from './AdminGalleryHome';
 import { Switch, Route } from 'react-router-dom';
 import ClientHome from './ClientHome';
 
@@ -49,7 +49,7 @@ export default function AdminMainContainer() {
 
       <Switch>
         <Route exact path="/admin/clienthome" component={ClientHome} />
-        <Route exact path="/admin/galleryhome" component={GalleryHome} />
+        <Route exact path="/admin/galleryhome" component={AdminGalleryHome} />
       </Switch>
     </div>
   );

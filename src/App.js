@@ -7,6 +7,7 @@ import ContactForm from './ContactForm';
 import About from './About';
 import Login from './Login';
 import AdminMainContainer from './AdminMainContainer';
+import NoMatchPage from './NoMatchPage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/about" component={About} />
         <Route path="/admin" component={AdminMainContainer} />
+        <Route component={NoMatchPage}/>
       </Switch>
     </div>
 

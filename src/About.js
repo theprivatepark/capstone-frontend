@@ -25,7 +25,7 @@ export default function About() {
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <img src={Photo1} className={classes.paper}></img>
+            <img src={Photo1} className={classes.paper} alt=""></img>
           </Paper>
         </Grid>
         <Grid item xs={6}>
