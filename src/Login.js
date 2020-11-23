@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    
   },
   avatar: {
     margin: theme.spacing(1),
@@ -21,11 +22,15 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: '100%',
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(1)
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    fontFamily: 'Crimson Text, serif',
   },
+  sign: {
+    fontFamily: 'Crimson Text, serif'
+  }
 }));
 
 export default function SignIn() {
@@ -35,7 +40,7 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" className={classes.sign}>
           Sign in
         </Typography>
         <form className={classes.form} noValidate>

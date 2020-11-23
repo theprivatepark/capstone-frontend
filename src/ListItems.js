@@ -20,13 +20,13 @@ export const mainListItems = (
       </ListItem>
     </Link>
 
-    <Link to="/admin/clienthome">
-      <ListItem button>
-        <ListItemIcon>
-          <PeopleIcon />
-        </ListItemIcon>
-        <ListItemText primary="Client Home" />
-      </ListItem>
+    <Link to="/admin/galleryhome">
+    <ListItem button>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <ListItemText primary="Client Home" />
+    </ListItem>
     </Link>
 
     <ListItem button>

@@ -6,19 +6,23 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    fontFamily: 'Crimson Text, serif',
+    color: "black",
+    textDecoration: "none"
+
   },
   header: {
     backgroundColor: "transparent",
     color: "black",
     boxShadow: "0px 0px 0px 0px",
-    borderBottom: '0.1em solid grey', padding: '0.5em'
-
+    
   }
 }));
 
@@ -32,12 +36,12 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             Anney Park Photography
           </Typography>
-          <Link to ="/"><Button color="inherit">Home</Button></Link>
-          <Link to ="/gallery"><Button color="inherit">Gallery</Button></Link>
-          <Link to ="/contact"><Button color="inherit">Contact</Button></Link>
-          <Button color="inherit">About</Button>
-          <Link to ='/login'><Button color="inherit">Client Login</Button></Link>
-          <Button color="inherit">Logout</Button>
+          <Link to ="/"><Button color="inherit" className={classes.title}>Home</Button></Link>
+          <Link to ="/gallery"><Button color="inherit" className={classes.title}>Gallery</Button></Link>
+          <Link to ="/contact"><Button color="inherit" className={classes.title}>Contact</Button></Link>
+          <Link to ="/about" ><Button color="inherit" className={classes.title}>About</Button></Link>
+          <Link to ='/login'><Button color="inherit" className={classes.title}>Client Login</Button></Link>
+          {/* <Link to ='/login'><Button color="inherit" className={classes.title}>Logout</Button></Link> */}
         </Toolbar>
       </AppBar>
     </div>
