@@ -35,7 +35,7 @@ export default function ClientHome() {
                                         setListVisibility(!listVisibility)
                                       }
                                       
-                                        }>Add New Client Form</Button>
+                                        }>Add New Client</Button>
         <div className={classes.appBarSpacer} />
       </div>
         :

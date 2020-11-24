@@ -54,39 +54,44 @@ export default function ClientList() {
 
   return (
     <>
-      <TableContainer component={Paper} className={classes.container}>
-        <Table className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <Toolbar>
-                <Typography variant="h6" id="tableTitle" component="div" className={classes.cell}>
-                  My Client List
-                </Typography>
-              </Toolbar>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {clients.sort((a, b) => a.id - b.id).map((client) => (
-              <TableRow key={client.id}>
-                <TableCell component="th" scope="client" className={classes.cell}>
-                  First Name: {client.first_name}
-                  <br/>
-                Last Name: {client.last_name}
-                </TableCell>
-                <br></br>
-                <Button variant="contained" onClick={(event) => handleViewEdit(event, client)}>View</Button>
-              &nbsp;
-                <Button variant="contained">Create Session</Button>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+
 
       <div>
-        {view ? <ClientProfile clickedClient={clickedClient} />
+        {view ?
+          <div>
+            <ClientProfile clickedClient={clickedClient} />
+            <Button style={{ backgroundColor: "red" }} onClick={() => { setView(!view) }}>Go Back to Client List</Button>
+          </div>
           :
-          null}
+          <TableContainer component={Paper} className={classes.container}>
+            <Table className={classes.table} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <Toolbar>
+                    <Typography variant="h6" id="tableTitle" component="div" className={classes.cell}>
+                      My Client List
+                </Typography>
+                  </Toolbar>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {clients.sort((a, b) => a.id - b.id).map((client) => (
+                  <TableRow key={client.id}>
+                    <TableCell component="th" scope="client" className={classes.cell}>
+                      First Name: {client.first_name}
+                      <br />
+                Last Name: {client.last_name}
+                    </TableCell>
+                    <br></br>
+                    <Button variant="contained" onClick={(event) => handleViewEdit(event, client)}>View</Button>
+              &nbsp;
+                    <Button variant="contained">Create Session</Button>
+
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>}
       </div>
     </>
 

@@ -20,7 +20,7 @@ export default function ClientProfile(props) {
   const [edit, setEdit] = useState(false)
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     console.log(e)
     let id = props.clickedClient.id
 
@@ -38,6 +38,17 @@ export default function ClientProfile(props) {
       })
     }
       fetch(`http://localhost:3001/clients/${id}`, client)
+      .then(response => response.json())
+      .then(console.log)
+  }
+
+
+  const handleDelete = (e) => {
+    let id = props.clickedClient.id
+
+      return fetch(`http://localhost:3001/clients/${id}`, {
+        method: "DELETE"
+      })
       .then(response => response.json())
       .then(console.log)
   }
@@ -90,7 +101,7 @@ export default function ClientProfile(props) {
       <CardActions>
         <Button size="small">View Sessions</Button>
         <Button size="small" onClick={() => setEdit(!edit)}>Edit</Button>
-        <Button size="small">Delete Client</Button>
+        <Button size="small" onClick={handleDelete}>Delete Client</Button>
 
       </CardActions>
     </Card>
