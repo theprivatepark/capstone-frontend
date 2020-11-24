@@ -18,11 +18,10 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  cell: {
+    fontFamily: 'Crimson Text, serif',
+  }
 });
-
-
-
-
 
 
 export default function ClientList() {
@@ -55,28 +54,29 @@ export default function ClientList() {
 
   return (
     <>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} className={classes.container}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
               <Toolbar>
-                <Typography variant="h6" id="tableTitle" component="div">
+                <Typography variant="h6" id="tableTitle" component="div" className={classes.cell}>
                   My Client List
-        </Typography>
+                </Typography>
               </Toolbar>
             </TableRow>
           </TableHead>
           <TableBody>
-            {clients.map((client) => (
+            {clients.sort((a, b) => a.id - b.id).map((client) => (
               <TableRow key={client.id}>
-                <TableCell component="th" scope="client">
+                <TableCell component="th" scope="client" className={classes.cell}>
                   First Name: {client.first_name}
-                  <br />
+                  <br/>
                 Last Name: {client.last_name}
                 </TableCell>
-                <Button variant="contained" color="primary" onClick={(event) => handleViewEdit(event, client)}>View/Edit</Button>
+                <br></br>
+                <Button variant="contained" onClick={(event) => handleViewEdit(event, client)}>View</Button>
               &nbsp;
-                <Button variant="contained" color="primary">Create New Session</Button>
+                <Button variant="contained">Create Session</Button>
               </TableRow>
             ))}
           </TableBody>
@@ -84,7 +84,7 @@ export default function ClientList() {
       </TableContainer>
 
       <div>
-        {view ? <ClientProfile clickedClient={clickedClient}/>
+        {view ? <ClientProfile clickedClient={clickedClient} />
           :
           null}
       </div>

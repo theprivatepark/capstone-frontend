@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
     alignItems: 'center',
-    backgroundColor: 'red'
   },
   paper: {
     padding: theme.spacing(2),
@@ -49,9 +48,12 @@ const useStyles = makeStyles((theme) => ({
 export default function UserMainContainer() {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  // let history = useHistory();
+
+
 
   const handleSubmitTest = (e) => {
-    e.preventDefault()
+
 
     const firstName = e.target[0].value
     const lastName = e.target[1].value
@@ -59,7 +61,7 @@ export default function UserMainContainer() {
     const email = e.target[3].value
     let client = {
       method: "POST",
-      headers: {'Content-Type' : 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         first_name: firstName,
         last_name: lastName,
@@ -67,10 +69,7 @@ export default function UserMainContainer() {
         email: email
       })
     }
-    console.log(client)
-      fetch("http://localhost:3001/clients", client)
-      .then(response => response.json())
-      .then(console.log)
+    fetch("http://localhost:3001/clients", client)
   }
 
   return (
@@ -80,7 +79,7 @@ export default function UserMainContainer() {
         <div className={classes.appBarSpacer} />
         <Container className={classes.container} >
           <Paper className={fixedHeightPaper} elevation={6} >
-            <form className={classes.form} noValidate onSubmit={(e)=>{handleSubmitTest(e)}}>
+            <form className={classes.form} noValidate onSubmit={(e) => { handleSubmitTest(e) }}>
               <TextField
                 required
                 fullWidth
@@ -108,7 +107,7 @@ export default function UserMainContainer() {
                 type="password"
                 id="password"
               />
-               <TextField
+              <TextField
                 required
                 fullWidth
                 margin="normal"
@@ -117,10 +116,12 @@ export default function UserMainContainer() {
                 type="email"
                 id="email"
               />
+      
               <Button
                 type="submit"
                 fullWidth
-                variant="contained">
+                variant="contained"
+                >
                 Create Client
                 </Button>
             </form>
