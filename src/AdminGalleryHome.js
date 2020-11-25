@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import AdminGallery from './AdminGallery';
+import Button from '@material-ui/core/Button';
+import CreateSessionForm from './CreateSessionForm';
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,11 +22,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AdminGalleryHome() {
   const classes = useStyles();
+  const [view, setView] = useState(false);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AdminGallery/>
+      {!view ? <div> <AdminGallery />
+        <Button style={{ backgroundColor: "red" }} onClick={() => { setView(!view) }}>Add New Session</Button>
+      </div>
+        :
+        <div>
+        <CreateSessionForm />      
+        <Button style={{ backgroundColor: "red" }} onClick={() => { setView(!view)}}>Go Back to Gallery</Button>
+        </div>
+      }
+
     </div>
   )
 

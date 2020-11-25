@@ -54,8 +54,6 @@ export default function ClientList() {
 
   return (
     <>
-
-
       <div>
         {view ?
           <div>
