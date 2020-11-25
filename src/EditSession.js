@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Button from '@material-ui/core/Button';
-import axios from 'axios';
-
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,70 +15,56 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-export default function CreateSessionForm(props) {
+export default function EditSession(props) {
   const classes = useStyles();
-
-  const [clients, setClients] = useState([])
   const status = ["consultation", "photo session", "editing", "complete"]
-  const [clientPick, setClientPick] = useState(props.client)
-  const [statusPick, setStatusPick] = useState(null)
-  const [currentClient, setCurrentClient] = useState({})
+  const [eventStatus, setStatusPick] = useState(props.event.status)
+  const [eventNameChange, setEventNameChange] = useState(props.event.event_name)
+  const [eventLocationName, setLocationNameChange] = useState(props.event.location_name)
+  const [eventLocationAddress, setLocationAddressChange] = useState(props.event.location_address)
+  const [eventDate, setEventDateChange] = useState(props.event.date)
+  const [eventTime, setEventTimeChange] = useState(props.event.time)
+  const eventId = props.event.id
 
-
-  const getClients = async () => {
-    try {
-      const allClients = await
-        axios.get("http://localhost:3001/clients")
-      setClients(allClients.data); //set State
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  useEffect(() => {
-    getClients()
-  }, []);
-
-
-  const handleClientChange = (event) => {
-    setClientPick(event.target.value);
-    console.log(event.target.value.id)
-    setCurrentClient(event.target.value.id)
-
-  }
   const handleStatusChange = (event) => {
     setStatusPick(event.target.value);
   }
-
-  const handleClient = (event, clientId) => {
-    console.log(clientId)
+  const handleEventNameChange = (event) => {
+    setEventNameChange(event.target.value)
+  }
+  const handleLocationNameChange = (event) => {
+    setLocationNameChange(event.target.value)
+  }
+  const handleLocationAddressChange = (event) => {
+    setLocationAddressChange(event.target.value)
+  }
+  const handleEventDateChange = (event) => {
+    setEventDateChange(event.target.value)
+  }
+  const handleEventTimeChange = (event) => {
+    setEventTimeChange(event.target.value)
   }
 
   const handleSubmit = (e) => {
+    e.preventDefault()
     console.log(e)
-    console.log(e.target[1].value)
-    const status = e.target[1].value
-    const eventName = e.target[2].value // event name
-    const locationName = e.target[3].value // location name
-    const locationAddress = e.target[4].value //address
-    const date = e.target[5].value //date
-    const time = e.target[6].value //time
 
     let event = {
-      method: "POST",
+      method: "PATCH",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        client_id: currentClient,
-        event_name: eventName,
-        location_name: locationName,
-        location_address: locationAddress,
-        date: date,
-        time: time,
-        status: status
+        event_id: eventId,
+        event_name: eventNameChange,
+        location_name: eventLocationName,
+        location_address: eventLocationAddress,
+        date: eventDate,
+        time: eventTime,
+        status: eventStatus
       })
     }
-    fetch("http://localhost:3001/events", event)
+    fetch(`http://localhost:3001/events/${eventId}`, event)
+      .then(response => response.json())
+      .then(console.log)
   }
 
 
@@ -89,24 +72,17 @@ export default function CreateSessionForm(props) {
     <form className={classes.root} noValidate onSubmit={(e) => { handleSubmit(e) }}>
       <div>
         <TextField
-          id="standard-select-currency"
-          select
-          label="Client Name"
-          value={clientPick}
-          onChange={handleClientChange}
-        >
-          {clients.map((client) => (
-            <MenuItem value={client} onChange={(e) => { handleClient(e, client.id) }}>
-              {client.first_name + " " + client.last_name}
-            </MenuItem>
-          ))}
-        </TextField>
+          id="standard-helperText"
+          label="Event Name"
+          defaultValue={props.event.event_name}
+          onChange={handleEventNameChange}
+        />
         <br></br>
         <TextField
           id="standard-select-currency"
           select
           label="Status"
-          value={statusPick}
+          defaultValue={props.event.status}
           onChange={handleStatusChange}
         >
           {status.map((status) => (
@@ -118,27 +94,24 @@ export default function CreateSessionForm(props) {
         <br></br>
         <TextField
           id="standard-helperText"
-          label="Event Name"
-          defaultValue=" "
-        />
-        <br></br>
-        <TextField
-          id="standard-helperText"
           label="Location Name"
-          defaultValue=" "
+          defaultValue={props.event.location_name}
+          onChange={handleLocationNameChange}
         />
         <br></br>
         <TextField
           id="standard-helperText"
           label="Location Address"
-          defaultValue=" "
+          defaultValue={props.event.location_address}
+          onChange={handleLocationAddressChange}
         />
         <br></br>
         <TextField
           id="date"
           label="Event Date"
           type="date"
-          defaultValue="2020-12-03"
+          defaultValue={props.event.date}
+          onChange={handleEventDateChange}
           className={classes.textField}
           InputLabelProps={{
             shrink: true,
@@ -149,7 +122,8 @@ export default function CreateSessionForm(props) {
           id="time"
           label="Event Time"
           type="time"
-          defaultValue="XX:XX"
+          defaultValue={props.event.time}
+          onChange={handleEventTimeChange}
           className={classes.textField}
           InputLabelProps={{
             shrink: true,
@@ -174,7 +148,7 @@ export default function CreateSessionForm(props) {
           fullWidth
           variant="contained"
         >
-          Create Session
+          Edit Session
         </Button>
         <br></br>
         <br></br>

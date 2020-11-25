@@ -32,8 +32,8 @@ export default function AdminGalleryHome() {
       </div>
         :
         <div>
-        <CreateSessionForm />      
-        <Button style={{ backgroundColor: "red" }} onClick={() => { setView(!view)}}>Go Back to Gallery</Button>
+          <CreateSessionForm />
+          <Button style={{ backgroundColor: "red" }} onClick={() => { setView(!view) }}>Go Back to Gallery</Button>
         </div>
       }
 
