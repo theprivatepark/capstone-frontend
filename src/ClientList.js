@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import ClientProfile from './ClientProfile';
+import CreateSession from './CreateSessionForm';
 
 
 const useStyles = makeStyles({
@@ -30,6 +31,8 @@ export default function ClientList() {
   const [clients, setClients] = useState([])
   const [view, setView] = useState(false)
   const [clickedClient, setClickedClient] = useState(null)
+  const [create, setCreate] = useState(false)
+  const [client, setClient] = useState("")
 
   const getClients = async () => {
     try {
@@ -51,10 +54,22 @@ export default function ClientList() {
     setView(!view);
   }
 
+  const handleCreate = (event, client) => {
+    event.preventDefault();
+    console.log(event)
+    console.log(client)
+    setCreate(!create)
+    setClient(client)
+  }
+
 
   return (
     <>
       <div>
+        {create ? <CreateSession client={client}/> 
+        :
+
+        <>
         {view ?
           <div>
             <ClientProfile clickedClient={clickedClient} />
@@ -83,13 +98,15 @@ export default function ClientList() {
                     <br></br>
                     <Button variant="contained" onClick={(event) => handleViewEdit(event, client)}>View</Button>
               &nbsp;
-                    <Button variant="contained">Create Session</Button>
+                    <Button variant="contained" onClick={(event) => handleCreate(event, client)}>Create Session</Button>
 
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>}
+          </>
+      }
       </div>
     </>
 

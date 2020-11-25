@@ -27,13 +27,14 @@ export default function AdminGalleryHome() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      {!view ? <div> <AdminGallery />
-        <Button style={{ backgroundColor: "red" }} onClick={() => { setView(!view) }}>Add New Session</Button>
+      {!view ? 
+      <div> 
+        <AdminGallery />
       </div>
         :
         <div>
           <CreateSessionForm />
-          <Button style={{ backgroundColor: "red" }} onClick={() => { setView(!view) }}>Go Back to Gallery</Button>
+          <Button style={{ backgroundColor: "pink" }} onClick={() => { setView(!view) }}>Go Back to Gallery</Button>
         </div>
       }
 

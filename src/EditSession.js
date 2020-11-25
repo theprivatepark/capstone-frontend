@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,6 +26,7 @@ export default function EditSession(props) {
   const [eventDate, setEventDateChange] = useState(props.event.date)
   const [eventTime, setEventTimeChange] = useState(props.event.time)
   const eventId = props.event.id
+  const [client, setClient] = useState([])
 
   const handleStatusChange = (event) => {
     setStatusPick(event.target.value);
@@ -67,10 +69,30 @@ export default function EditSession(props) {
       .then(console.log)
   }
 
+  const getClient = async () => {
+    try {
+      const client = await
+        axios.get(`http://localhost:3001/clients/${props.event.client_id}`)
+      setClient(client.data); //set State
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getClient()
+  }, []);
+
 
   return (
     <form className={classes.root} noValidate onSubmit={(e) => { handleSubmit(e) }}>
       <div>
+      <TextField
+          id="standard-helperText"
+          label="Client"
+          value={client.first_name + " " + client.last_name}
+        />
+        <br></br>
         <TextField
           id="standard-helperText"
           label="Event Name"
@@ -150,6 +172,7 @@ export default function EditSession(props) {
         >
           Edit Session
         </Button>
+      
         <br></br>
         <br></br>
       </div>
