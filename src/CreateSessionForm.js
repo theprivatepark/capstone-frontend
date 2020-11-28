@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Button from '@material-ui/core/Button';
 
 
@@ -22,14 +21,12 @@ export default function CreateSessionForm(props) {
   const [statusPick, setStatusPick] = useState(null)
 
 
-  
-
-
   const handleStatusChange = (event) => {
     setStatusPick(event.target.value);
   }
 
   const handleSubmit = (e) => {
+    e.preventDefault()
     console.log(e)
     console.log(e.target[1].value)
     const status = e.target[1].value
@@ -50,13 +47,11 @@ export default function CreateSessionForm(props) {
         date: date,
         time: time,
         status: status
+
       })
     }
     fetch("http://localhost:3001/events", event)
   }
-
-
-
 
 
   return (
@@ -126,14 +121,16 @@ export default function CreateSessionForm(props) {
           }}
         />
         <br></br>
-        <Button
-          variant="contained"
-          color="default"
-          className={classes.button}
-          startIcon={<CloudUploadIcon />}
-        >
-          Upload Images to Gallery
-        </Button>
+
+        <input
+          accept="image/png, image/jpeg"
+          className={classes.input}
+          id="contained-button-file"
+          multiple
+          type="file"
+          name="image"
+        />
+
         <br></br>
         <br></br>
         <Button

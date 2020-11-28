@@ -1,8 +1,7 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
@@ -81,13 +80,13 @@ export default function EditSession(props) {
 
   useEffect(() => {
     getClient()
-  }, []);
+  });
 
 
   return (
     <form className={classes.root} noValidate onSubmit={(e) => { handleSubmit(e) }}>
       <div>
-      <TextField
+        <TextField
           id="standard-helperText"
           label="Client"
           value={client.first_name + " " + client.last_name}
@@ -155,15 +154,6 @@ export default function EditSession(props) {
           }}
         />
         <br></br>
-        <Button
-          variant="contained"
-          color="default"
-          className={classes.button}
-          startIcon={<CloudUploadIcon />}
-        >
-          Upload Images to Gallery
-        </Button>
-        <br></br>
         <br></br>
         <Button
           type="submit"
@@ -172,7 +162,7 @@ export default function EditSession(props) {
         >
           Edit Session
         </Button>
-      
+
         <br></br>
         <br></br>
       </div>

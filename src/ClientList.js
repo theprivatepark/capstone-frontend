@@ -68,7 +68,6 @@ export default function ClientList() {
       <div>
         {create ? <CreateSession client={client}/> 
         :
-
         <>
         {view ?
           <div>

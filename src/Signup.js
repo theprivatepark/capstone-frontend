@@ -45,15 +45,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UserMainContainer() {
+export default function Signup(props) {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   // let history = useHistory();
 
-
-
-  const handleSubmitTest = (e) => {
-
+  const handleSubmit = (e) => {
 
     const firstName = e.target[0].value
     const lastName = e.target[1].value
@@ -69,7 +66,7 @@ export default function UserMainContainer() {
         email: email
       })
     }
-    fetch("http://localhost:3001/clients", client)
+    fetch("http://localhost:3001/clients", client )  //{ withCredentials: true }
   }
 
   return (
@@ -79,7 +76,7 @@ export default function UserMainContainer() {
         <div className={classes.appBarSpacer} />
         <Container className={classes.container} >
           <Paper className={fixedHeightPaper} elevation={6} >
-            <form className={classes.form} noValidate onSubmit={(e) => { handleSubmitTest(e) }}>
+            <form className={classes.form} noValidate onSubmit={(e) => { handleSubmit(e) }}>
               <TextField
                 required
                 fullWidth

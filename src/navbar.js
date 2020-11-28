@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "transparent",
     color: "black",
     boxShadow: "0px 0px 0px 0px",
-    
+
   }
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
 
   return (
@@ -36,12 +36,17 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             Anney Park Photography
           </Typography>
-          <Link to ="/"><Button color="inherit" className={classes.title}>Home</Button></Link>
-          <Link to ="/gallery"><Button color="inherit" className={classes.title}>Gallery</Button></Link>
-          <Link to ="/contact"><Button color="inherit" className={classes.title}>Contact</Button></Link>
-          <Link to ="/about" ><Button color="inherit" className={classes.title}>About</Button></Link>
-          <Link to ='/login'><Button color="inherit" className={classes.title}>Client Login</Button></Link>
+          <Link to="/"><Button color="inherit" className={classes.title}>Home</Button></Link>
+          <Link to="/gallery"><Button color="inherit" className={classes.title}>Gallery</Button></Link>
+          <Link to="/contact"><Button color="inherit" className={classes.title}>Contact</Button></Link>
+          <Link to="/about" ><Button color="inherit" className={classes.title}>About</Button></Link>
+          <Link to='/login'><Button color="inherit" className={classes.title}>Client Login</Button></Link>
           {/* <Link to ='/login'><Button color="inherit" className={classes.title}>Logout</Button></Link> */}
+          {
+            props.loggedInStatus ?
+              <Link to='/logout' onClick={props.handleClick}>Log Out</Link> :
+              null
+          }
         </Toolbar>
       </AppBar>
     </div>

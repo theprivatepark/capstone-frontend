@@ -94,11 +94,10 @@ export default function Gallery() {
                       <br></br>
                       Status: {event.status}
                     </Typography>
-
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      Add Photos
+                      View Gallery
                     </Button>
                     <Button size="small" color="primary" onClick={(e) => { handleEdit(e, event) }}>
                       Edit
@@ -113,10 +112,10 @@ export default function Gallery() {
           </Grid>
         </Container>
       </main>
-      : 
-      <EditSession event={event}/>
+        :
+        <EditSession event={event} />
       }
-      
+
 
     </React.Fragment>
   );

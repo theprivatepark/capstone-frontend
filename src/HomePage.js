@@ -14,20 +14,20 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    overflowY: 'hidden'
+    backgroundColor: 'transparent',
+    boxShadow: 'none'
   },
   imageContainer: {
     height: '80vh',
     width: '100%',
     backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    overflowY: 'hidden'
+    backgroundRepeat: 'no-repeat'
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
-    overflowY: 'hidden',
+    color: theme.palette.text.secondary
+
 
   },
 }));

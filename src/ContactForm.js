@@ -1,113 +1,109 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Photo4 from './assets/photo4.jpg';
+import TextField from '@material-ui/core/TextField';
+import { Button, CssBaseline } from '@material-ui/core';
+import Photo4 from './assets/logo.png';
+
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    flexGrow: 1,
+    padding: 100
   },
   paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    padding: theme.spacing(2),
+    paddingTop: 70,
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    height: 500,
+    backgroundColor: 'transparent',
+    boxShadow: 'none'
   },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
+  imagePaper: {
+    padding: theme.spacing(10),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    height: 500,
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+  pic: {
+    marginTop: 80
+  }
 }));
 
-export default function ContactForm() {
+export default function FullWidthGrid() {
   const classes = useStyles();
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7}>
-        <img src={Photo4} alt=""/>
-      </Grid>
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <form className={classes.form} noValidate>
-            <Grid container spacing={2}>
+    <div className={classes.root}>
+            <CssBaseline />
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          <Paper className={classes.imagePaper}>
+            <img src={Photo4} className={classes.pic}/>
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Paper className={classes.paper}>
 
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="name"
-                  label="Name"
-                  type="name"
-                  id="standard-basic"
-                  autoComplete="name"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="number"
-                  label="Phone Number"
-                  name="number"
-                  autoComplete="number"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="date"
-                  label="Event Date MM/DD/YYYY"
-                  name="date"
-                  autoComplete="date"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="message"
-                  label="Message"
-                  name="message"
-                  autoComplete="message"
-                />
-              </Grid>
-              <Button
-                type="submit"
+          <Grid container alignItems="flex-start" spacing={3}>
+            <Grid item xs={6}>
+              <TextField
                 fullWidth
+                required
+                name="firstName"
+                type="text"
+                label="First Name" />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                required
+                name="lastName"
+                type="text"
+                label="Last Name" />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                required
+                name="email"
+                type="text"
+                label="Email" />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                required
+                name="lastName"
+                type="text"
+                label="Phone Number" />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                name="notes"
+                multiline
+                label="Message" />
+            </Grid>
+            <Grid item style={{ marginTop: 16 }}>
+              <Button
                 variant="contained"
-                className={classes.submit}>
+                type="submit">
                 Submit
               </Button>
             </Grid>
-          </form>
-        </div>
+          </Grid>
+
+
+
+          </Paper>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 }

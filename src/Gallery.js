@@ -22,14 +22,21 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
     paddingRight: theme.spacing(4),
+    backgroundColor: 'transparent',
+    boxShadow: 'none'
+    
   },
   card: {
     height: 400,
     display: 'flex',
     flexDirection: 'column',
+    backgroundColor: 'transparent',
+    boxShadow: 'none'
   },
   cardMedia: {
     paddingTop: '150%', // 16:9
+    backgroundColor: 'transparent',
+    boxShadow: 'none'
   },
 
 }));
