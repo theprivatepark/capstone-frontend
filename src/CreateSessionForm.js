@@ -19,43 +19,75 @@ export default function CreateSessionForm(props) {
   const classes = useStyles();
   const status = ["consultation", "photo session", "editing", "complete"]
   const [statusPick, setStatusPick] = useState(null)
+  const [image, setImage] = useState({})
+  const [test, setTest] = useState("")
 
 
   const handleStatusChange = (event) => {
     setStatusPick(event.target.value);
   }
 
+  const handleImageChange = (event) => {
+    // setImage(event.target.value);
+    setImage(event.target.files[0])
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(e)
-    console.log(e.target[1].value)
+
     const status = e.target[1].value
     const eventName = e.target[2].value // event name
     const locationName = e.target[3].value // location name
     const locationAddress = e.target[4].value //address
     const date = e.target[5].value //date
     const time = e.target[6].value //time
+  const file = image
+  const clientId = props.client.id
+  console.log(file)
+
+    const formData = new FormData()
+
+    formData.append("image", file)
+    formData.append("status", status)
+    formData.append("clientId", clientId)
+    formData.append("eventName", eventName)
+    formData.append("locationName", locationName)
+    formData.append("locationAddress", locationAddress)
+    formData.append("date", date)
+    formData.append("time", time)
+    
 
     let event = {
       method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        client_id: props.client.id,
-        event_name: eventName,
-        location_name: locationName,
-        location_address: locationAddress,
-        date: date,
-        time: time,
-        status: status
+      body: formData
 
-      })
+      // headers: { 'Content-Type': 'application/json' },
+      // body: {
+      //   // client_id: props.client.id,
+      //   // event_name: eventName,
+      //   // location_name: locationName,
+      //   // location_address: locationAddress,
+      //   // date: date,
+      //   // time: time,
+      //   // status: status,
+      //   // file: formData,
+      //   image: testImg
+
+      // }
     }
     fetch("http://localhost:3001/events", event)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.image)
+      console.log(data)
+      setTest('http://localhost:3001' + data.image)
+      
+    })
   }
 
 
   return (
-    <form className={classes.root} noValidate onSubmit={(e) => { handleSubmit(e) }}>
+    <form enctype="multipart/form-data" className={classes.root} noValidate onSubmit={(e) => { handleSubmit(e) }}>
       <div>
         <TextField
           id="standard-select-currency"
@@ -129,17 +161,17 @@ export default function CreateSessionForm(props) {
           multiple
           type="file"
           name="image"
+          onChange={handleImageChange}
         />
-
         <br></br>
         <br></br>
         <Button
           type="submit"
           fullWidth
-          variant="contained"
-        >
+          variant="contained">
           Create Session
         </Button>
+        <img src={test} alt=""/>
         <br></br>
         <br></br>
       </div>

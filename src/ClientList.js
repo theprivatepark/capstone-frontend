@@ -17,7 +17,8 @@ import CreateSession from './CreateSessionForm';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 550,
+    backgroundColor: '#EDEDEA'
   },
   cell: {
     fontFamily: 'Crimson Text, serif',

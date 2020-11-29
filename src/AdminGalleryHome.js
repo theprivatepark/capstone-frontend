@@ -5,9 +5,6 @@ import AdminGallery from './AdminGallery';
 import Button from '@material-ui/core/Button';
 import CreateSessionForm from './CreateSessionForm';
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',

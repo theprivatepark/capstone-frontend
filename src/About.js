@@ -15,18 +15,13 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     backgroundColor: 'transparent',
     boxShadow: 'none'
-    // backgroundImage: `url(${Photo})`,
-    // height: 400,
-    // backgroundRepeat: 'no-repeat',
-    // // backgroundSize: 'cover',
-    // backgroundSize: '100%'
   },
   image: {
     height: '80vh'
   }
 }));
 
-export default function FullWidthGrid() {
+export default function AboutMe() {
   const classes = useStyles();
 
   return (
@@ -34,7 +29,7 @@ export default function FullWidthGrid() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <img src={Photo} className={classes.image}/>
+            <img src={Photo} alt="" className={classes.image}/>
           </Paper>
         </Grid>
       </Grid>
