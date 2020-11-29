@@ -50,54 +50,10 @@ export default function FullWidthGrid() {
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
 
-          <Grid container alignItems="flex-start" spacing={3}>
-            <Grid item xs={6}>
-              <TextField
-                fullWidth
-                required
-                name="firstName"
-                type="text"
-                label="First Name" />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                fullWidth
-                required
-                name="lastName"
-                type="text"
-                label="Last Name" />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                fullWidth
-                required
-                name="email"
-                type="text"
-                label="Email" />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                fullWidth
-                required
-                name="lastName"
-                type="text"
-                label="Phone Number" />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                name="notes"
-                multiline
-                label="Message" />
-            </Grid>
-            <Grid item style={{ marginTop: 16 }}>
-              <Button
-                variant="contained"
-                type="submit">
-                Submit
-              </Button>
-            </Grid>
-          </Grid>
+        <form action="">
+          <div class="form-group" ></div>
+        </form>
+          
 
 
 
