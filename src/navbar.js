@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   header: {
     backgroundColor: "transparent",
     color: "black",
-    boxShadow: "0px 0px 0px 0px",
+    // boxShadow: "0px 0px 0px 0px",
 
   }
 }));
@@ -31,7 +31,7 @@ export default function ButtonAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.header}>
+      <AppBar position="static" className={classes.header} elevation={0}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Anney Park Photography
