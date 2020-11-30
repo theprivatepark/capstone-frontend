@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import { mainListItems } from './ListItems';
+import MainListItems from './ListItems';
 import AdminGalleryHome from './AdminGalleryHome';
 import { Switch, Route } from 'react-router-dom';
 import ClientHome from './ClientHome';
@@ -45,7 +45,7 @@ export default function AdminMainContainer() {
         classes={{
           paper: clsx(classes.drawerPaper),
         }}>
-        <List>{mainListItems}</List>
+        <List><MainListItems/></List>
       </Drawer>
 
       <Switch>

@@ -6,16 +6,35 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import { Link } from 'react-router-dom';
+import {  useHistory } from "react-router-dom";
+
+
 
 
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 375,
+    minWidth: '500px',
+    midHeight: '400px',
+    marginLeft: '350px',
+    marginTop: '200px',
+    backgroundColor: '#EDEDEA',
+    textAlign: 'center'
   },
+  edit: {
+    padding: '10px'
+  },
+  actions: {
+    marginLeft: '95px'
+  },
+  button: {
+    width: '150px'
+  }
 });
 
 export default function ClientProfile(props) {
+  const history = useHistory()
   const classes = useStyles();
   const [edit, setEdit] = useState(false)
 
@@ -50,7 +69,8 @@ export default function ClientProfile(props) {
         method: "DELETE"
       })
       .then(response => response.json())
-      .then(console.log)
+      .then(history.go(0)
+      )
   }
 
   return (
@@ -70,7 +90,7 @@ export default function ClientProfile(props) {
           </Typography>
         </CardContent>
         :
-        <form className={classes.root} noValidate onSubmit={(e) => { handleSubmit(e) }}>
+        <form className={classes.edit} noValidate onSubmit={(e) => { handleSubmit(e) }}>
           <TextField
             defaultValue={props.clickedClient.first_name}
             inputProps={{ 'aria-label': 'description' }}
@@ -88,18 +108,21 @@ export default function ClientProfile(props) {
             inputProps={{ 'aria-label': 'description' }}
             label="Email"
           />
+          <br></br>
+          <br></br>
+
           <Button
             type="submit"
-            fullWidth
             variant="contained"
+            className={classes.button}
             size="small">
             Submit
           </Button>
         </form>
       }
 
-      <CardActions>
-        <Button size="small">View Sessions</Button>
+      <CardActions className={classes.actions}>
+        <Link to="/amyslinkedin"> <Button size="small">View Sessions</Button></Link>
         <Button size="small" onClick={() => setEdit(!edit)}>Edit</Button>
         <Button size="small" onClick={handleDelete}>Delete Client</Button>
 

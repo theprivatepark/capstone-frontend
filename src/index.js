@@ -5,6 +5,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
+
 const theme = createMuiTheme({
   typography: {
     fontFamily: 'Crimson Text, serif'

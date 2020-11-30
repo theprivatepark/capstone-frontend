@@ -6,10 +6,21 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from '@material-ui/icons/People';
 import MapIcon from '@material-ui/icons/Map';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 
-export const mainListItems = (
+const useStyles = makeStyles((theme) => ({
+  link: {
+    textDecoration: 'none',
+    color: "black"
+  }
+}));
+
+
+export default function MainListItems() {
+  const classes = useStyles();
+  return(
   <div>
-    <Link to="/admin/galleryhome">
+    <Link to="/admin/galleryhome" className={classes.link}>
       <ListItem button>
         <ListItemIcon>
           <DashboardIcon />
@@ -18,7 +29,7 @@ export const mainListItems = (
       </ListItem>
     </Link>
 
-    <Link to="/admin/clienthome">
+    <Link to="/admin/clienthome" className={classes.link}>
       <ListItem button>
         <ListItemIcon>
           <PeopleIcon />
@@ -31,7 +42,7 @@ export const mainListItems = (
       <ListItemIcon>
         <MapIcon />
       </ListItemIcon>
-      <ListItemText primary="View Map" />
+      <ListItemText primary="View Map TBD" />
     </ListItem>
   </div>
-);
+  )};

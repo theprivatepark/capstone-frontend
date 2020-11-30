@@ -49,13 +49,64 @@ export default function FullWidthGrid() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
+            <form action="https://formspree.io/f/xknpvvqa" method="POST">
+          <Grid container alignItems="flex-start" spacing={3}>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                required
+                name="First Name"
+                type="text"
+                label="First Name" 
+                id="firstName"/>
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                required
+                name="Last Name"
+                type="text"
+                label="Last Name" 
+                id= "lastName"/>
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                required
+                name="Email"
+                type="text"
+                label="Email" 
+                id="email" />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                required
+                name="Phone Number"
+                type="text"
+                label="Phone Number" 
+                id="phoneNumber"/>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                name="Message"
+                multiline
+                label="Message" 
+                id="message" />
+            </Grid>
+            <Grid item style={{ marginTop: 16 }} xs={12}>
+              <Button
+                variant="contained"
+                fullWidth
+                type="submit">
+               
+                Submit
+              </Button>
+            </Grid>
+          </Grid>
 
-        <form action="">
-          <div class="form-group" ></div>
-        </form>
-          
-
-
+          </form>
 
           </Paper>
         </Grid>

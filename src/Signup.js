@@ -32,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
     alignItems: 'center',
+    minWidth: '200px',
+    marginLeft: '350px'
   },
   paper: {
     padding: theme.spacing(2),
@@ -42,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 440,
     width: 440,
+    backgroundColor: '#EDEDEA'
   },
 }));
 

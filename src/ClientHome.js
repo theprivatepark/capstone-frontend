@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
-import CreateClientForm from './Signup';
+import Signup from './Signup';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import ClientList from './ClientList';
@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
     overflow: 'auto',
   },
+  button: {
+    marginLeft: '200px'
+  }
 }));
 
 export default function ClientHome() {
@@ -30,7 +33,7 @@ export default function ClientHome() {
       
 
       {!showForm ? <div className={classes.content}>
-        <Button variant="contained" onClick={() => {
+        <Button className={classes.button} variant="contained" onClick={() => {
                                         setShowForm(!showForm)
                                         setListVisibility(!listVisibility)
                                       }
@@ -39,7 +42,7 @@ export default function ClientHome() {
         <div className={classes.appBarSpacer} />
       </div>
         :
-        <CreateClientForm />}
+        <Signup />}
     </div>
   )
 

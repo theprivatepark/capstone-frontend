@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import axios from 'axios'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,14 +30,16 @@ const useStyles = makeStyles((theme) => ({
   },
   sign: {
     fontFamily: 'Crimson Text, serif'
+  },
+  link: {
+    textDecoration: 'none'
   }
 }));
 
-export default function SignIn(props) {
+export default function Login(props) {
   const classes = useStyles();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [errors, setErrors] = useState('')
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -49,39 +51,30 @@ export default function SignIn(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+
     let user = {
       email: email,
       password: password
     }
 
-    axios.post('http://localhost:3001/login', { user }, { withCredentials: true })
-      .then(response => {
-        if (response.data.logged_in) {
-          props.handleLogin(response.data)
-          redirect()
-        } else {
-          setErrors({
-            errors: response.data.errors
-          })
+    fetch('http://localhost:3001/login', {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
+    })
+      .then(response => response.json())
+      .then(data => {
+      console.log(data)
+        if (data.errors) {
+          alert(data.info)
+        }
+        else {
+          // props.setCurrentUser(data.info)
+          console.log(data.info)
         }
       })
-      .catch(error => console.log('api errors:', error))
   };
 
-  const redirect = () => {
-    props.history.push('/')
-  }
-  const handleErrors = () => {
-    return (
-      <div>
-        <ul>
-          {errors.map(error => {
-            return <li key={error}>{error}</li>
-          })}
-        </ul>
-      </div>
-    )
-  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -115,6 +108,7 @@ export default function SignIn(props) {
             autoComplete="current-password"
             onChange={handlePasswordChange}
           />
+
           <Button
             type="submit"
             fullWidth
@@ -123,11 +117,10 @@ export default function SignIn(props) {
             Sign In
           </Button>
 
+
         </form>
       </div>
-      {
-        errors ? handleErrors() : null
-      }
+
       <Box mt={8}>
       </Box>
     </Container>

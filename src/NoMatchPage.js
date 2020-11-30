@@ -6,6 +6,6 @@ export default function NoMatchPage() {
     fontSize: 18,
     marginTop: 350,
     fontFamily: 'Crimson Text, serif',
-    }}>404 - Not Found. Try again ho.</div>
+    }}>404 - Not Found. Try again ho. Kalada sucks! jk!</div>
   )
 }

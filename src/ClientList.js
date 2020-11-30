@@ -16,12 +16,17 @@ import CreateSession from './CreateSessionForm';
 
 
 const useStyles = makeStyles({
-  table: {
-    minWidth: 550,
-    backgroundColor: '#EDEDEA'
-  },
   cell: {
     fontFamily: 'Crimson Text, serif',
+  },
+  container: {
+    minWidth: '200px',
+    marginLeft: '350px',
+    backgroundColor: '#EDEDEA'
+
+  },
+  button: {
+    marginLeft: '500px'
   }
 });
 
@@ -73,7 +78,10 @@ export default function ClientList() {
         {view ?
           <div>
             <ClientProfile clickedClient={clickedClient} />
-            <Button style={{ backgroundColor: "red" }} onClick={() => { setView(!view) }}>Go Back to Client List</Button>
+            <br></br>
+            <Button type="submit"
+            variant="contained"
+            size="small" className={classes.button} onClick={() => { setView(!view) }}>Go Back to Client List</Button>
           </div>
           :
           <TableContainer component={Paper} className={classes.container}>
