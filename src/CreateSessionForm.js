@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CreateSessionForm(props) {
   const classes = useStyles();
-  const status = ["consultation", "photo session", "editing", "complete"]
+  const status = ["consultation", "editing", "complete"]
   const [statusPick, setStatusPick] = useState(null)
   const [image, setImage] = useState({})
   const [test, setTest] = useState("")
@@ -84,9 +84,9 @@ export default function CreateSessionForm(props) {
     fetch("http://localhost:3001/events", event)
       .then(response => response.json())
       .then(data => {
-        console.log(data.image)
+        console.log(data.event.image)
         console.log(data)
-        setTest('http://localhost:3001' + data.image)
+        setTest('http://localhost:3001' + data.event.image)
 
       })
   }

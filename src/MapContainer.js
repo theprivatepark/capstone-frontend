@@ -1,0 +1,35 @@
+import React, { useState, useEffect } from 'react';
+import MapEvents from "./MapEvents"
+import axios from 'axios';
+
+
+export default function MapContainer() {
+
+  const [events, setEvents] = useState(null)
+
+  const getEvents = async () => {
+    try {
+      const allEvents = await
+        axios.get("http://localhost:3001/events")
+      setEvents(allEvents.data); //set State
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getEvents()
+  }, []);
+
+  return (
+    <div style={{marginLeft: "15rem", marginTop: "5rem"}}>
+      <MapEvents
+        events={events}
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCmqcVkTUStPyUGnnigpDAQ6VSlNX9SDi4&v=3.exp&libraries=geometry,drawing,places`}
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `600px`, width: `1000px`, display: 'block' }} />}
+        mapElement={<div style={{ height: `100%` }} />}
+      />
+    </div>
+  );
+}

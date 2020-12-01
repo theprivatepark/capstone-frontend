@@ -12,6 +12,7 @@ import Amy from './AmyGallery';
 import Giulia from './GiuliaGallery'
 
 
+
 class App extends Component {
 
   constructor() {

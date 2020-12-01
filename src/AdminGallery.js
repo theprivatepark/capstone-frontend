@@ -14,17 +14,22 @@ import EditSession from './EditSession';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
+    width: '100%',
+    minWidth: '200px',
+    marginLeft: '350px',
+    paddingTop: theme.spacing(2),
+  //   // paddingBottom: theme.spacing(8),
   },
   card: {
     height: '100%',
-    width: '100%',
+    width: '18rem',
     display: 'flex',
     flexDirection: 'column',
+    // minWidth: '200px',
+    // marginLeft: '70px',
   },
   cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '76.25%', // 16:9
   },
   cardContent: {
     flexGrow: 1,
@@ -75,6 +80,7 @@ export default function Gallery() {
     <React.Fragment>
       <CssBaseline />
       {!view ? <main>
+        <div>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={4}>
             {events.map((event) => (
@@ -111,6 +117,7 @@ export default function Gallery() {
             ))}
           </Grid>
         </Container>
+        </div>
       </main>
         :
         <EditSession event={event} />
