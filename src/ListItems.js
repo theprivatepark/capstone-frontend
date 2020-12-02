@@ -5,6 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from '@material-ui/icons/People';
 import MapIcon from '@material-ui/icons/Map';
+import RoomIcon from '@material-ui/icons/Room';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -44,6 +45,15 @@ export default function MainListItems() {
             <MapIcon />
           </ListItemIcon>
           <ListItemText primary="View Map" />
+        </ListItem>
+      </Link>
+
+      <Link to='/admin/weather' className={classes.link}>
+        <ListItem button>
+          <ListItemIcon>
+            <RoomIcon />
+          </ListItemIcon>
+          <ListItemText primary="View Weather" />
         </ListItem>
       </Link>
     </div>

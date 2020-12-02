@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
 import EditSession from './EditSession';
+import ClientPhotos from './ClientPhotos';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -42,12 +43,18 @@ export default function Gallery() {
   const [events, setEvents] = useState([])
   const [view, setView] = useState(false)
   const [event, setEditEvent] = useState(false)
+  const [galleryevent, setGalleryEvent] = useState(null)
 
   const getEvents = async () => {
     try {
       const allEvents = await
         axios.get("http://localhost:3001/events")
-      setEvents(allEvents.data); //set State
+        const list = allEvents.data;
+        const parsedList = list.map(event => 
+          JSON.parse(event)
+        ) 
+        console.log(parsedList)
+      setEvents(parsedList); //set State
     } catch (err) {
       console.error(err.message);
     }
@@ -75,6 +82,12 @@ export default function Gallery() {
     setView(!view);
   }
 
+  const handleGallery = (e, event) => {
+    console.log(e)
+    console.log(event)
+    setGalleryEvent(event)
+  }
+
 
   return (
     <React.Fragment>
@@ -83,7 +96,7 @@ export default function Gallery() {
         <div>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={4}>
-            {events.map((event) => (
+            {events.map(({event}) => (
               <Grid item key={event} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
@@ -102,7 +115,7 @@ export default function Gallery() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="primary" onClick={(e) => { handleGallery(e, event) }}>
                       View Gallery
                     </Button>
                     <Button size="small" color="primary" onClick={(e) => { handleEdit(e, event) }}>
@@ -123,6 +136,7 @@ export default function Gallery() {
         <EditSession event={event} />
       }
 
+  <ClientPhotos />
 
     </React.Fragment>
   );

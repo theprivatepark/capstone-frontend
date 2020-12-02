@@ -4,9 +4,9 @@ import MapMarker from './MapMarker';
 
 
 const EventsMap = withScriptjs(withGoogleMap((props) => {
-
+console.log(props.events)
   // (props.events ? 
-      const markers = props.events.map(event => <MapMarker
+      const markers = props.events.map(({event}) => <MapMarker
       key={event.id}
       locationAddress={event.location_address}
       location={{ lat: event.latitude, lng: event.longitude }} />)

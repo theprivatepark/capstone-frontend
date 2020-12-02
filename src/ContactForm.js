@@ -44,7 +44,7 @@ export default function FullWidthGrid() {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <Paper className={classes.imagePaper}>
-            <img src={Photo4} className={classes.pic}/>
+            <img src={Photo4} className={classes.pic} alt=""/>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>

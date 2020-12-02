@@ -9,6 +9,7 @@ import AdminGalleryHome from './AdminGalleryHome';
 import { Switch, Route } from 'react-router-dom';
 import ClientHome from './ClientHome';
 import MapContainer from './MapContainer';
+import WeekContainer from './WeekContainer';
 
 const drawerWidth = 240;
 
@@ -53,6 +54,7 @@ export default function AdminMainContainer() {
         <Route exact path="/admin/clienthome" component={ClientHome} />
         <Route exact path="/admin/galleryhome" component={AdminGalleryHome} />
         <Route exact path="/admin/map" component={MapContainer}/>
+        <Route exact path="/admin/weather" component={WeekContainer} />
       </Switch>
     </div>
   );
