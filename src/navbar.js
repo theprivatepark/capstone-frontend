@@ -45,8 +45,8 @@ export default function ButtonAppBar(props) {
           </Typography>
           <Link to="/" className={classes.link}><Button color="inherit" className={classes.title}>Home</Button></Link>
           <Link to="/gallery" className={classes.link}><Button color="inherit" className={classes.title}>Gallery</Button></Link>
-          <Link to="/contact" className={classes.link}><Button color="inherit" className={classes.title}>Contact</Button></Link>
           <Link to="/about" className={classes.link}><Button color="inherit" className={classes.title}>About</Button></Link>
+          <Link to="/contact" className={classes.link}><Button color="inherit" className={classes.title}>Contact</Button></Link>
           <Link to='/login' className={classes.link}><Button color="inherit" className={classes.title}>Login</Button></Link>
           {/* <Link to ='/login'><Button color="inherit" className={classes.title}>Logout</Button></Link> */}
           {

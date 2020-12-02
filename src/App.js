@@ -10,7 +10,8 @@ import AdminMainContainer from './AdminMainContainer';
 import NoMatchPage from './NoMatchPage';
 import Amy from './AmyGallery';
 import Giulia from './GiuliaGallery'
-
+import './owfont-regular.css'
+import './css/owfont-regular.min.css'
 
 
 class App extends Component {

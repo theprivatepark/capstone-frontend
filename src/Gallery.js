@@ -56,8 +56,7 @@ export default function Gallery() {
                 <Paper className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image={card}
-                  />
+                    image={card}/>
                 </Paper>
               </Grid>
             ))}
