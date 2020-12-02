@@ -105,7 +105,7 @@ export default function Gallery() {
                   <Card className={classes.card}>
                     <CardMedia
                       className={classes.cardMedia}
-                      image="https://source.unsplash.com/random"
+                      image={`http://localhost:3001${event.image}`} //{`http://localhost:3001` + props.gallery.image}
                       title="Image title"
                     />
                     <CardContent className={classes.cardContent}>

@@ -84,8 +84,6 @@ export default function CreateSessionForm(props) {
     fetch("http://localhost:3001/events", event)
       .then(response => response.json())
       .then(data => {
-        console.log(data.event.image)
-        console.log(data)
         setTest('http://localhost:3001' + data.event.image)
 
       })
