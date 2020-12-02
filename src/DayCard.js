@@ -10,15 +10,14 @@ const DayCard = ({ reading }) => {
 
   return (
     <div className="col-sm-2">
-      <div className="card">
-        <h3 className="card-title">{moment(newDate).format('dddd')}</h3>
-        <p className="text-muted">{moment(newDate).format('MMMM Do')}</p>
+      <div className="card" style={{backgroundColor: '#EDEDEA', borderRadius: '30px'}}>
+        <h3 className="card-title" style={{textAlign: 'center', marginTop: '20px'}}>{moment(newDate).format('dddd')}</h3>
+        <p className="text-muted" style={{textAlign: 'center'}}>{moment(newDate).format('MMMM Do')}</p>
         <i className={imgURL}></i>
-        {/* <h2>{(Math.round((reading.main.temp) - 273.15) * (9 / 5) + 32)}°F</h2> */}
-        <h2>{ Math.round((Math.round((reading.main.temp) - 273.15) * (9 / 5) + 32) * 100) / 100 }°F</h2>
-        <p>Feels like: { Math.round((Math.round((reading.main.feels_like) - 273.15) * (9 / 5) + 32) * 100) / 100 }°F</p>
+        <h2 style={{textAlign: 'center'}}>{ Math.round((Math.round((reading.main.temp) - 273.15) * (9 / 5) + 32) * 100) / 100 }°F</h2>
+        <p style={{textAlign: 'center'}}>Feels like: { Math.round((Math.round((reading.main.feels_like) - 273.15) * (9 / 5) + 32) * 100) / 100 }°F</p>
         <div className="card-body">
-          <p className="card-text">{reading.weather[0].description}</p>
+          <p className="card-text"  style={{textAlign: 'center'}}>{reading.weather[0].description}</p>
         </div>
       </div>
     </div>

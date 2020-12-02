@@ -28,7 +28,7 @@ class WeekContainer extends React.Component {
   render() {
     return (
       <div className="container">
-      <h5 className="display-5 text-muted">Washington DC</h5>
+      <h5 className="display-5 text-muted" style={{textAlign: 'center', marginBottom: '25px'}}>Washington DC - 5 Day Forecast</h5>
         <div className="row justify-content-center">
 
           {this.formatDayCards()}
