@@ -3,9 +3,9 @@ import React from 'react';
 export default function NoMatchPage() {
   return(
     <div style={{textAlign: 'center', fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 38,
     marginTop: 350,
     fontFamily: 'Crimson Text, serif',
-    }}>404 - Not Found. Try again ho. Kalada sucks! jk!</div>
+    }}>404 - Not Found. Try again!</div>
   )
 }

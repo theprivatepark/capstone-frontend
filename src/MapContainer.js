@@ -29,7 +29,7 @@ export default function MapContainer() {
     <div style={{marginLeft: "15rem", marginTop: "5rem"}}>
       <MapEvents
         events={events}
-        googleMapURL={`https://maps.googleapis
+        googleMapURL={``}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `600px`, width: `1000px`, display: 'block' }} />}
         mapElement={<div style={{ height: `100%` }} />}

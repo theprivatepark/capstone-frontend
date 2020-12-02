@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import {  useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +27,7 @@ export default function EditSession(props) {
   const [eventTime, setEventTimeChange] = useState(props.event.time)
   const eventId = props.event.id
   const [client, setClient] = useState([])
+  const history = useHistory()
 
   const handleStatusChange = (event) => {
     setStatusPick(event.target.value);
@@ -65,7 +67,8 @@ export default function EditSession(props) {
     }
     fetch(`http://localhost:3001/events/${eventId}`, event)
       .then(response => response.json())
-      .then(console.log)
+      .then(history.go(0)
+      )
   }
 
   const getClient = async () => {

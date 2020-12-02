@@ -12,7 +12,6 @@ import Photo6 from './assets/gallery6.jpg';
 import Photo7 from './assets/gallery7.jpg'; 
 import Photo8 from './assets/gallery8.jpg'; 
 import Photo9 from './assets/gallery9.jpg'; 
-
 import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 

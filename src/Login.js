@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {  useHistory } from "react-router-dom";
 
 
 
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login(props) {
   const classes = useStyles();
+  const history = useHistory();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -71,6 +73,7 @@ export default function Login(props) {
         else {
           // props.setCurrentUser(data.info)
           console.log(data.info)
+          history.push('/admin/weather')
         }
       })
   };
