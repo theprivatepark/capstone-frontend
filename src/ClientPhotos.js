@@ -12,17 +12,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     minWidth: '200px',
-    marginLeft: '350px',
+    marginLeft: '150px',
     backgroundColor: theme.palette.background.paper,
   },
   card: {
     width: 700,
-    height: 650,
+    height: 850,
   },
   imageContainer: {
-    width: '20rem',
-    marginLeft: '13rem',
-    marginTop: '5rem'
+    width: '500px',
+    height: 'auto',
+    marginLeft: '6rem',
+    marginTop: '2rem',
 
   }
 }));
@@ -34,11 +35,10 @@ export default function ClientPhotos(props) {
   return (
     <div className={classes.root}>
       <Stepper />
-      <Grid>
         <Card className={classes.card}>
         <img src={`http://localhost:3001` + props.gallery.image} alt="" className={classes.imageContainer}/>
         </Card>
-      </Grid>
+    
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
-
+import {  useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +25,8 @@ export default function CreateSessionForm(props) {
   const status = ["consultation", "editing", "complete"]
   const [statusPick, setStatusPick] = useState(null)
   const [image, setImage] = useState({})
-  const [test, setTest] = useState("")
+  const history = useHistory();
+  // const [test, setTest] = useState("")
 
 
   const handleStatusChange = (event) => {
@@ -83,10 +84,11 @@ export default function CreateSessionForm(props) {
     }
     fetch("http://localhost:3001/events", event)
       .then(response => response.json())
-      .then(data => {
-        setTest('http://localhost:3001' + data.event.image)
+      .then(setTimeout(function(){window.location.reload();},10))
+      // (data => {
+      //   setTest('http://localhost:3001' + data.event.image)
 
-      })
+      // })
   }
 
 
@@ -177,7 +179,7 @@ export default function CreateSessionForm(props) {
             variant="contained">
             Create Session
         </Button>
-          <img src={test} alt="" />
+          {/* <img src={test} alt="" /> */}
           <br></br>
           <br></br>
         </div>

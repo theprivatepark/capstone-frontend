@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import {  useHistory } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Signup(props) {
   const classes = useStyles();
+  const history = useHistory();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   // let history = useHistory();
 
@@ -70,6 +72,16 @@ export default function Signup(props) {
       })
     }
     fetch("http://localhost:3001/clients", client )  //{ withCredentials: true }
+    .then(response => response.json()
+    .then(data => {
+      if (data.errors) {
+        alert(data.info)
+      }
+      else {
+        debugger
+        history.push('/admin/clienthome')
+      }
+    }))
   }
 
   return (

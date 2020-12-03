@@ -11,9 +11,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: '25ch',
+      width: '45ch',
     },
+    marginLeft: '40rem',
+    marginTop: '5rem'
   },
+  
 }));
 
 export default function EditSession(props) {
@@ -83,7 +86,7 @@ export default function EditSession(props) {
 
   useEffect(() => {
     getClient()
-  });
+  } , []);
 
 
   return (

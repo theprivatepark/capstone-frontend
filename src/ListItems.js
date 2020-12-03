@@ -8,6 +8,8 @@ import MapIcon from '@material-ui/icons/Map';
 import RoomIcon from '@material-ui/icons/Room';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -19,43 +21,56 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainListItems() {
   const classes = useStyles();
+  const history = useHistory()
+
+
+  const handleGallery = () => {
+    history.push('/admin/galleryhome')
+  }
+
+  const handleHome = () => {
+    history.push('/admin/clienthome')
+  }
+
+  const handleMap = () => {
+    history.push('/admin/map')
+  }
+
+  const handleWeather= () => {
+    history.push('/admin/weather')
+  }
+
   return (
     <div>
-      <Link to="/admin/galleryhome" className={classes.link}>
+
         <ListItem button>
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
-          <ListItemText primary="Gallery Home" />
+          <ListItemText primary="Gallery Home" onClick={handleGallery}/>
         </ListItem>
-      </Link>
 
-      <Link to="/admin/clienthome" className={classes.link}>
         <ListItem button>
           <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
-          <ListItemText primary="Client Home" />
+          <ListItemText primary="Client Home" onClick={handleHome}/>
         </ListItem>
-      </Link>
 
-      <Link to='/admin/map' className={classes.link}>
         <ListItem button>
           <ListItemIcon>
             <MapIcon />
           </ListItemIcon>
-          <ListItemText primary="View Map" />
+          <ListItemText primary="View Map" onClick={handleMap}/>
         </ListItem>
-      </Link>
 
-      <Link to='/admin/weather' className={classes.link}>
         <ListItem button>
           <ListItemIcon>
             <RoomIcon />
           </ListItemIcon>
-          <ListItemText primary="View Weather" />
+          <ListItemText primary="View Weather" onClick={handleWeather}/>
         </ListItem>
-      </Link>
+
     </div>
   )
 };
