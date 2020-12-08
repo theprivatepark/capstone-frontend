@@ -1,9 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Stepper from './Stepper';
+// import Stepper from './Stepper';
 import { Card } from '@material-ui/core';
-import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   imageContainer: {
     width: '500px',
     height: 'auto',
-    marginLeft: '6rem',
+    marginLeft: '7rem',
     marginTop: '2rem',
 
   }
@@ -34,7 +33,7 @@ export default function ClientPhotos(props) {
 
   return (
     <div className={classes.root}>
-      <Stepper />
+      {/* <Stepper /> */}
         <Card className={classes.card}>
         <img src={`http://localhost:3001` + props.gallery.image} alt="" className={classes.imageContainer}/>
         </Card>

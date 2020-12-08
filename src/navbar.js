@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -47,7 +48,7 @@ export default function ButtonAppBar(props) {
           <Link to="/gallery" className={classes.link}><Button color="inherit" className={classes.title}>Gallery</Button></Link>
           <Link to="/about" className={classes.link}><Button color="inherit" className={classes.title}>About</Button></Link>
           <Link to="/contact" className={classes.link}><Button color="inherit" className={classes.title}>Contact</Button></Link>
-          <Link to='/login' className={classes.link}><Button color="inherit" className={classes.title}>Login</Button></Link>
+          <Link to='/login' className={classes.link}><Button color="inherit" className={classes.title}><VpnKeyIcon/></Button></Link>
           {/* <Link to ='/login'><Button color="inherit" className={classes.title}>Logout</Button></Link> */}
           {
             props.loggedInStatus ?

@@ -112,7 +112,7 @@ export default function Gallery() {
         <div>
           <Container className={classes.cardGrid} maxWidth="md">
             <Grid container spacing={4}>
-              {events.sort((a, b) => a.event.id - b.event.id).map(({ event }) => (
+              {events.sort((a, b) => b.event.id - a.event.id).map(({ event }) => (
                 <Grid item key={event} xs={12} sm={6} md={4}>
                   <Card className={classes.card}>
                     <CardMedia
