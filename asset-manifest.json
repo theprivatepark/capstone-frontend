@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/capstone-frontend/static/css/main.4ae239b1.chunk.css",
+    "main.js": "/capstone-frontend/static/js/main.1843bd72.chunk.js",
+    "main.js.map": "/capstone-frontend/static/js/main.1843bd72.chunk.js.map",
+    "runtime-main.js": "/capstone-frontend/static/js/runtime-main.9b83c039.js",
+    "runtime-main.js.map": "/capstone-frontend/static/js/runtime-main.9b83c039.js.map",
+    "static/js/2.0460ee36.chunk.js": "/capstone-frontend/static/js/2.0460ee36.chunk.js",
+    "static/js/2.0460ee36.chunk.js.map": "/capstone-frontend/static/js/2.0460ee36.chunk.js.map",
+    "index.html": "/capstone-frontend/index.html",
+    "static/css/main.4ae239b1.chunk.css.map": "/capstone-frontend/static/css/main.4ae239b1.chunk.css.map",
+    "static/js/2.0460ee36.chunk.js.LICENSE.txt": "/capstone-frontend/static/js/2.0460ee36.chunk.js.LICENSE.txt",
+    "static/media/AboutMe.0cad18b1.png": "/capstone-frontend/static/media/AboutMe.0cad18b1.png",
+    "static/media/amy1.30da7b2d.jpg": "/capstone-frontend/static/media/amy1.30da7b2d.jpg",
+    "static/media/amy2.8c37add6.jpg": "/capstone-frontend/static/media/amy2.8c37add6.jpg",
+    "static/media/amy3.072baa06.jpg": "/capstone-frontend/static/media/amy3.072baa06.jpg",
+    "static/media/amy4.07144732.jpg": "/capstone-frontend/static/media/amy4.07144732.jpg",
+    "static/media/gallery1.859c1bed.jpg": "/capstone-frontend/static/media/gallery1.859c1bed.jpg",
+    "static/media/gallery2.5935a082.jpg": "/capstone-frontend/static/media/gallery2.5935a082.jpg",
+    "static/media/gallery3.465ae09c.jpg": "/capstone-frontend/static/media/gallery3.465ae09c.jpg",
+    "static/media/gallery4.4d8d39e8.jpg": "/capstone-frontend/static/media/gallery4.4d8d39e8.jpg",
+    "static/media/gallery5.e344c1dd.jpg": "/capstone-frontend/static/media/gallery5.e344c1dd.jpg",
+    "static/media/gallery6.f6efb9d9.jpg": "/capstone-frontend/static/media/gallery6.f6efb9d9.jpg",
+    "static/media/gallery7.12f72e66.jpg": "/capstone-frontend/static/media/gallery7.12f72e66.jpg",
+    "static/media/gallery8.02c0d688.jpg": "/capstone-frontend/static/media/gallery8.02c0d688.jpg",
+    "static/media/gallery9.45f65620.jpg": "/capstone-frontend/static/media/gallery9.45f65620.jpg",
+    "static/media/giulia1.d0f5cb04.jpg": "/capstone-frontend/static/media/giulia1.d0f5cb04.jpg",
+    "static/media/giulia2.e636201f.jpg": "/capstone-frontend/static/media/giulia2.e636201f.jpg",
+    "static/media/giulia3.b835398f.jpg": "/capstone-frontend/static/media/giulia3.b835398f.jpg",
+    "static/media/giulia4.2f890586.jpg": "/capstone-frontend/static/media/giulia4.2f890586.jpg",
+    "static/media/logo.83a09d09.png": "/capstone-frontend/static/media/logo.83a09d09.png",
+    "static/media/owfont-regular.min.css": "/capstone-frontend/static/media/owfont-regular.77585afb.eot",
+    "static/media/photo1.b8325ed8.jpg": "/capstone-frontend/static/media/photo1.b8325ed8.jpg",
+    "static/media/photo2.16312f38.jpg": "/capstone-frontend/static/media/photo2.16312f38.jpg",
+    "static/media/photo3.3b1579a2.jpg": "/capstone-frontend/static/media/photo3.3b1579a2.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9b83c039.js",
+    "static/js/2.0460ee36.chunk.js",
+    "static/css/main.4ae239b1.chunk.css",
+    "static/js/main.1843bd72.chunk.js"
+  ]
+}
