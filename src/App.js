@@ -37,6 +37,7 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/capstone-frontend" component={HomeContainer} />
           <Route exact path="/gallery" component={Gallery} />
           <Route exact path="/contact" component={ContactForm} />
           <Route exact path="/about" component={About} />
