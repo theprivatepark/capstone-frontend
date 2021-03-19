@@ -35,7 +35,7 @@ export default function ClientPhotos(props) {
     <div className={classes.root}>
       {/* <Stepper /> */}
         <Card className={classes.card}>
-        <img src={`http://localhost:3001` + props.gallery.image} alt="" className={classes.imageContainer}/>
+        <img src={`http://localhost:3001` + props.gallery.image} alt="client photos" className={classes.imageContainer}/>
         </Card>
     
     </div>
