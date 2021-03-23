@@ -62,8 +62,6 @@ export default function ClientList() {
 
   const handleCreate = (event, client) => {
     event.preventDefault();
-    console.log(event)
-    console.log(client)
     setCreate(!create)
     setClient(client)
   }

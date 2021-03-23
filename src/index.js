@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-
 import { BrowserRouter as Router } from 'react-router-dom';
 
 
@@ -12,7 +11,7 @@ const theme = createMuiTheme({
   },
   palette: {
     background: {
-      default: '#f5f3ec'
+      default: '#f5f3ec' //tan
     }
   }
 });

@@ -9,10 +9,6 @@ import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom';
 import {  useHistory } from "react-router-dom";
 
-
-
-
-
 const useStyles = makeStyles({
   root: {
     minWidth: '500px',
@@ -68,7 +64,7 @@ export default function ClientProfile(props) {
       return fetch(`http://localhost:3001/clients/${id}`, {
         method: "DELETE"
       })
-      .then(response => response.json())
+      .then(resp => resp.json())
       .then(history.go(0)
       )
   }
@@ -122,7 +118,7 @@ export default function ClientProfile(props) {
       }
 
       <CardActions className={classes.actions}>
-        <Link to="/amyslinkedin"> <Button size="small">View Sessions</Button></Link>
+        <Link to="/amyslinkedin"> <Button size="small">View Session</Button></Link>
         <Button size="small" onClick={() => setEdit(!edit)}>Edit</Button>
         <Button size="small" onClick={handleDelete}>Delete Client</Button>
 

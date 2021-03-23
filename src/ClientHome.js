@@ -38,7 +38,7 @@ export default function ClientHome() {
                                         setListVisibility(!listVisibility)
                                       }
                                       
-                                        }>Add New Client</Button>
+                                        }>Add Client</Button>
         <div className={classes.appBarSpacer} />
       </div>
         :
