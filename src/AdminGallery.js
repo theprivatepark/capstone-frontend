@@ -86,7 +86,7 @@ export default function Gallery() {
     return fetch(`http://localhost:3001/events/${id}`, {
       method: "DELETE"
     })
-    .then(response => {response.json()})
+    .then(res => {res.json()})
     .then(setTimeout(function(){window.location.reload();},10))
   }
 
@@ -127,12 +127,12 @@ export default function Gallery() {
                       <Typography variant="h5" align="center" color="textSecondary" paragraph>
                         Date: {event.date}
                         <br></br>
-                      Status: {event.status}
+                        Status: {event.status}
                       </Typography>
                     </CardContent>
                     <CardActions>
                       <Button size="small" color="primary" onClick={(e) => {handleOpen(e, event)}}>
-                        View Gallery
+                        View Photo Gallery
                     </Button>
                       <Modal
                         aria-labelledby="transition-modal-title"
